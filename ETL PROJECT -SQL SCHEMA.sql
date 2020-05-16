@@ -33,11 +33,13 @@ DROP TABLE country;
 
 -- -- -- -- -- -- -- -- -- -- [EXAMPLE QUERIES]  -- -- -- -- -- -- -- -- -- -- -- -- --
 
-SELECT * FROM "trending_videos";
+SELECT * FROM trending_videos;
 SELECT * FROM categories;
 SELECT * FROM country;
 
 SELECT COUNT(video_id) FROM "trending_videos";
+
+SELECT * FROM trending_videos WHERE country_id = 02;
 
 SELECT v.video_id, v.trending_date, v.title, v.channel_title, v.views, v.comment_count, ca.category_name, co.country_name
 FROM trending_videos AS v
@@ -45,7 +47,9 @@ INNER JOIN categories AS ca
 ON v.category_id = ca.category_id
 INNER JOIN country AS co
 ON v.country_id = co.country_id
-WHERE co.country_name like 'Canada'
+WHERE co.country_name like 'Mexico'
 ORDER BY v.views desc
 LIMIT 100;
+
+
 
