@@ -5,7 +5,7 @@
 -- -- -- -- -- -- -- -- -- -- [DATA ENGINEERING]  -- -- -- -- -- -- -- -- -- -- -- -- --
 -- Creating tables and importing csv files to tables to SQL DATABASE
 
-CREATE  TABLE trending_videos (
+CREATE TABLE trending_videos (
   	"video_id" varchar(1000) NOT NULL,
 	"trending_date"  date NOT NULL,
 	"title" varchar(5000) NOT NULL,
@@ -34,8 +34,8 @@ DROP TABLE country;
 -- -- -- -- -- -- -- -- -- -- [EXAMPLE QUERIES]  -- -- -- -- -- -- -- -- -- -- -- -- --
 
 SELECT * FROM "trending_videos";
-SELECT * FROM "Categories";
-SELECT * FROM "Country";
+SELECT * FROM categories;
+SELECT * FROM country;
 
 SELECT COUNT(video_id) FROM "trending_videos";
 
@@ -45,7 +45,7 @@ INNER JOIN categories AS ca
 ON v.category_id = ca.category_id
 INNER JOIN country AS co
 ON v.country_id = co.country_id
-WHERE co.country_name like 'Germany'
+WHERE co.country_name like 'Canada'
 ORDER BY v.views desc
-LIMIT 25;
+LIMIT 100;
 
